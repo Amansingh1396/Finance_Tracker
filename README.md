@@ -1,59 +1,34 @@
-# IncomeTracker
+# Personal Finance Tracker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+## About the Project
+Hi there! 👋  
+This is my **Personal Finance Tracker**, an Angular-based application to help you manage your finances effectively. The app allows you to keep track of your income and expenses, visualize your data with charts, and see a detailed summary of your financial activities—all in one place! It's fully responsive and styled using Angular Material.
 
-## Development server
+---
 
-To start a local development server, run:
+## What You Can Do with This App
+Here are the key features of the app:
+- **Manage Transactions**:  
+  Add, edit, and delete transactions effortlessly.
+- **Track Finances**:  
+  See your total income, expenses, and balance at a glance.
+- **Visualize Data**:  
+  View your income and expenses with an interactive doughnut chart.
+- **Categorize Expenses**:  
+  Assign transactions to categories like groceries, rent, salary, and more.
+- **Responsive Design**:  
+  Use the app seamlessly on desktops, tablets, or phones.
+- **Data Persistence**:  
+  Your transactions are saved locally (using LocalStorage) and won't disappear when you refresh the page.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## How to Get Started
+Want to run this app on your machine? Follow these steps:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Prerequisites
+Make sure you have these installed:
+- **Node.js**: Download it [here](https://nodejs.org/).
+- **Angular CLI**: Install it globally by running:
+  ```bash
+  npm install -g @angular/cli
