@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [TransactionsComponent],
 })
-export class AppComponent {
-  title = 'Income-tracker';
-}
+export class AppComponent {}

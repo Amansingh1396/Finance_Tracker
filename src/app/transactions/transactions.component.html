@@ -1,0 +1,91 @@
+<div class="container mt-4">
+  <h1 class="text-center">Personal Finance Tracker</h1>
+
+
+  <div class="summary mt-4 row">
+    <div class="col-md-4">
+      <mat-card>
+        <h3>Total Income</h3>
+        <p>{{ transactionService.getTotalIncome() | currency }}</p>
+      </mat-card>
+    </div>
+    <div class="col-md-4">
+      <mat-card>
+        <h3>Total Expenses</h3>
+        <p>{{ transactionService.getTotalExpense() | currency }}</p>
+      </mat-card>
+    </div>
+    <div class="col-md-4">
+      <mat-card>
+        <h3>Balance</h3>
+        <p>{{ transactionService.getBalance() | currency }}</p>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="charts mt-4">
+    <mat-card>
+      <h2>Overview</h2>
+      <canvas id="transactionChart"></canvas>
+    </mat-card>
+  </div>
+
+
+  <div class="transaction-form mt-4">
+    <mat-card>
+      <h2>{{ isEditMode ? 'Edit Transaction' : 'Add Transaction' }}</h2>
+      <form [formGroup]="transactionForm" (ngSubmit)="addTransaction()">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" formControlName="amount" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type" required>
+            <mat-option value="income">Income</mat-option>
+            <mat-option value="expense">Expense</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category" required>
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{ category }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">
+          {{ isEditMode ? 'Update Transaction' : 'Add Transaction' }}
+        </button>
+      </form>
+    </mat-card>
+  </div>
+
+
+  <div class="transactions mt-4">
+    <mat-card>
+      <h2 class="transactions-heading">Recent Transactions</h2>
+      <mat-list>
+        <mat-list-item *ngFor="let transaction of transactions" class="highlighted-transaction">
+          <div class="transaction-item">
+            <strong>{{ transaction.description }}</strong> - {{ transaction.amount | currency }} ({{ transaction.type }},
+            {{ transaction.category }}) <span>{{ transaction.date | date: 'short' }}</span>
+            <div class="transaction-actions">
+              <button mat-icon-button color="warn" (click)="deleteTransaction(transaction.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" (click)="editTransaction(transaction)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+      <p *ngIf="transactions.length === 0" class="text-center mt-4">No recent transactions found.</p>
+    </mat-card>
+  </div>
+</div>
